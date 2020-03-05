@@ -1,0 +1,29 @@
+---
+title: "Project 3: Stat302Package Tutorial"
+author: "Simona Liao"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Stat302Package Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(Stat302Package)
+```
+
+```{r, eval = FALSE}
+devtools::install_github("SimonaLiao/Stat302Package", build_vignette = TRUE, build_opts = c())
+library(Stat302Package)
+# Use this to view the vignette in the Demo HTML help
+help(package = "Stat302Package", help_type = "html")
+# Use this to view the vignette as an isolated HTML file
+utils::browseVignettes(package = "Stat302Package")
+```
