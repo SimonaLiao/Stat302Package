@@ -8,6 +8,7 @@ Authors@R:
            email = "zliao2@uw.edu",
            comment = c(ORCID = "YOUR-ORCID-ID"))
 Description: A class project package.
+Depends: R (>= 3.2)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -17,4 +18,8 @@ Suggests:
     covr,
     knitr,
     rmarkdown
+Imports: 
+    stats,
+    class,
+    randomForest
 VignetteBuilder: knitr
