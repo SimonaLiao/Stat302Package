@@ -1,9 +1,8 @@
-# within test-my_pow.R
-test_that("my_pow works mathmatically", {
-  expect_equal(my_pow(2), 4)
-  expect_equal(my_pow(2, power = 3), 8)
+# within test-my_lm.R
+data("my_gapminder")
+test_that("my_lm outputs a table", {
+  expect_is(my_lm(my_fml = pop ~ gdpPercap, my_data = my_gapminder), table)
 })
-test_that("non-numeric input throws error", {
-  expect_error(my_pow("a string"))
-  expect_error(my_pow(2, power = "a string"))
+test_that("my_fml should be a formula class object", {
+  expect_error(my_lm(1, my_data = my_gapminder))
 })
