@@ -64,11 +64,16 @@ From the test result, we can know that the p_value is greater than 0.05. So the 
 ##3. Tutorial for `my_lm`
 ```{r}
 test <- my_lm(my_fml = lifeExp ~ gdpPercap + continent, my_data = my_gapminder)
+my_coef <- test[1]
+my_matrix <- cbind(1, my_gapminder$gdpPercap)
+y_hat <- my_matrix %*% as.matrix(my_coef)
+plot(my_gapminder$lifeExp, y_hat)
 ```
 From the statistics above, we know that the expected difference in the response `lifeExp` between two observations differing by one unit in `gdpPercap`, with all other covariates identical, is about 4.45 * 10^-4. Comparing to the coeffiecients of different continents, `gdpPercap` has less influence on `lifeExp` than `continent`.
 
 ```{r}
 # library(tidyverse)
+
 # #mod_fits <- fitted(test)
 # my_df <- data.frame(actual = my_gapminder$lifeExp, fitted = test)
 # ggplot(my_df, aes(x = test, y = actual)) +
