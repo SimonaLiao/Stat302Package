@@ -27,3 +27,57 @@ help(package = "Stat302Package", help_type = "html")
 # Use this to view the vignette as an isolated HTML file
 utils::browseVignettes(package = "Stat302Package")
 ```
+
+## 2. Tutorial For `my_t.test`
+All the tests demonstrated below use `lifeExp` data from `my_gapminder`.
+# case I: alternative = "two.sided"
+  \begin{align}
+  H_0: \mu &= 60,\\
+  H_a: \mu &\neq 60.
+  \end{align}
+```{r}
+data("my_gapminder")
+my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "two.sided")
+```
+From the test result, we can know that the p_value is greater than 0.05. So the result is not statistically significant and we do not have enough evidence to reject the null hypothesis, H_0.
+
+# case II: alternative = "less"
+  \begin{align}
+  H_0: \mu &= 60,\\
+  H_a: \mu &< 60.
+  \end{align}
+```{r}
+my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "less")
+```
+From the test result, we can know that the p_value is less than 0.05. So the result is statistically significant and we have sufficient evidence to reject the null hypothesis, H_0.
+
+# case III: alternative = "greater"
+  \begin{align}
+  H_0: \mu &= 60,\\
+  H_a: \mu &> 60.
+  \end{align}
+```{r}
+my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "greater")
+```
+From the test result, we can know that the p_value is greater than 0.05. So the result is not statistically significant and we do not have enough evidence to reject the null hypothesis, H_0.
+
+##3. Tutorial for `my_lm`
+```{r}
+test <- my_lm(my_fml = lifeExp ~ gdpPercap + continent, my_data = my_gapminder)
+```
+From the statistics above, we know that the expected difference in the response `lifeExp` between two observations differing by one unit in `gdpPercap`, with all other covariates identical, is about 4.45 * 10^-4. Comparing to the coeffiecients of different continents, `gdpPercap` has less influence on `lifeExp` than `continent`.
+
+```{r}
+# library(tidyverse)
+# #mod_fits <- fitted(test)
+# my_df <- data.frame(actual = my_gapminder$lifeExp, fitted = test)
+# ggplot(my_df, aes(x = test, y = actual)) +
+#   geom_point() +
+#   geom_abline(slope = 1, intercept = 0, col = "red", lty = 2) + 
+#   theme_bw(base_size = 15) +
+#   labs(x = "Fitted values", y = "Actual values", title = "Actual vs. Fitted") +
+#   theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
