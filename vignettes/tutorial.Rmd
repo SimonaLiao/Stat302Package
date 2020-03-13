@@ -36,7 +36,8 @@ utils::browseVignettes(package = "Stat302Package")
 
 ## 2. Tutorial For `my_t.test`
 All the tests demonstrated below use `lifeExp` data from `my_gapminder`.
-# case I: alternative = "two.sided"
+
+### case I: alternative = "two.sided"
   \begin{align}
   H_0: \mu &= 60,\\
   H_a: \mu &\neq 60.
@@ -47,7 +48,7 @@ my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "two.sided")
 ```
 From the test result, we can know that the p_value is greater than 0.05. So the result is not statistically significant and we do not have enough evidence to reject the null hypothesis, H_0.
 
-# case II: alternative = "less"
+### case II: alternative = "less"
   \begin{align}
   H_0: \mu &= 60,\\
   H_a: \mu &< 60.
@@ -57,7 +58,7 @@ my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "less")
 ```
 From the test result, we can know that the p_value is less than 0.05. So the result is statistically significant and we have sufficient evidence to reject the null hypothesis, H_0.
 
-# case III: alternative = "greater"
+### case III: alternative = "greater"
   \begin{align}
   H_0: \mu &= 60,\\
   H_a: \mu &> 60.
@@ -68,13 +69,16 @@ my_t_test(my_gapminder$lifeExp, mu = 60, alternative = "greater")
 From the test result, we can know that the p_value is greater than 0.05. So the result is not statistically significant and we do not have enough evidence to reject the null hypothesis, H_0.
 
 ##3. Tutorial for `my_lm`
-```{r}
+```{r, include = F}
 library(tidyverse)
+```
+```{r}
 test <- my_lm(my_fml = lifeExp ~ gdpPercap + continent, my_data = my_gapminder)
 estimate <- test[2, 1]
 p_val <- test[2, 4]
+test
 ```
-From the statistics above, we know that the expected difference in the response `lifeExp` between two observations differing by one unit in `gdpPercap`, with all other covariates identical, is about 4.45 * 10^-4. Comparing to the coeffiecients of different continents, differences in `gdpPercap` have less influence on `lifeExp` than differences in `continent`.
+From the statistics above, we know that the expected difference in the response `lifeExp` between two observations differing by one unit in `gdpPercap`, with all other covariates identical, is `r estimate`. Comparing to the coeffiecients of different continents, differences in `gdpPercap` have less influence on `lifeExp` than differences in `continent`.
 
 Now, we will do a two sided hypothesis test associated with the `gdpPercap` coefficient. The null hypothesis is that there will be no significant prediction of `lifeExp` by `gdpPercap`.
 
