@@ -9,7 +9,7 @@ This package is created as a class project for Stat302 in UW. It contains four f
 # Installation
 To download the Stat302 package, use the code below.
 
-```{r}
+```r
 # install.packages("devtools")
 devtools::install_github("SimonaLiao/Stat302Package")
 library(Stat302Package)
@@ -17,7 +17,7 @@ library(Stat302Package)
 # Use
 The vignette demonstrates example usage of all main functions. You can see the vignette by using the following code:
 
-```{r}
+```r
 # install.packages("devtools")
 devtools::install_github("SimonaLiao/Stat302Package", build_vignette = TRUE, build_opts = c())
 library(Stat302Package)
