@@ -17,9 +17,13 @@ Suggests:
     testthat (>= 2.1.0),
     covr,
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyverse
 Imports: 
     stats,
     class,
-    randomForest
+    randomForest,
+    tidyverse,
+    ggplot2,
+    magrittr
 VignetteBuilder: knitr
