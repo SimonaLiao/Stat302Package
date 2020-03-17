@@ -31,7 +31,7 @@ utils::browseVignettes(package = "Stat302Package")
 ```
 To begin, we load our example data set `my_gapminder`.
 
-```{r setup}
+```{r, message = FALSE}
 library(Stat302Package)
 library(ggplot2)
 library(magrittr)
