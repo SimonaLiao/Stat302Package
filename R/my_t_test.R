@@ -5,7 +5,7 @@
 #' @param x Numeric vector of data to be tested.
 #' @param alternative Charater string specifying the alternative hypothesis. It is one of "two.sided", "less", or "greater".
 #' @param mu Numeric input indicating the null hypothesis value of the mean.
-#' @keywords Inferential Statistic
+#' @keywords Inference
 #'
 #' @return A List of test_stat (the numeric test statistic), df (degrees of freedom),  p_value (the numeric p-value),  and alternative (the value of the parameter alternative).
 #'
